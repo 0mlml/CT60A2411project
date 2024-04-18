@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import dev.mlml.ct60a2411project.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 import dev.mlml.ct60a2411project.databinding.ActivitySearchBinding;
@@ -19,9 +20,9 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySearchBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        int[] imageList = {};
-        int[] ingredientList = {};
-        int[] descList = {};
+        int[] imageList = {R.drawable.finland, R.drawable.finland, R.drawable.finland, R.drawable.finland, R.drawable.finland, R.drawable.finland, R.drawable.finland};
+        int[] ingredientList = {R.string.pastaIngredients, R.string.maggiIngredients,R.string.cakeIngredients,R.string.pancakeIngredients,R.string.pizzaIngredients, R.string.burgerIngredients, R.string.friesIngredients};
+        int[] descList = {R.string.pastaDesc, R.string.maggieDesc, R.string.cakeDesc,R.string.pancakeDesc,R.string.pizzaDesc, R.string.burgerDesc, R.string.friesDesc};
         String[] nameList = {"Pasta", "Maggi", "Cake", "Pancake", "Pizza","Burgers", "Fries"};
         String[] timeList = {"30 mins", "2 mins", "45 mins","10 mins", "60 mins", "45 mins", "30 mins"};
         for (int i = 0; i < imageList.length; i++){
