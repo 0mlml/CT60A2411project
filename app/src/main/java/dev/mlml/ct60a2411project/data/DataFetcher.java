@@ -19,12 +19,11 @@ public abstract class DataFetcher {
             return;
         }
 
-        File dataFile = null;
+        File dataFile = new File(System.getProperty("java.io.tmpdir") + File.separator + randomTemporyFileName());
 
         try {
             String fileName = randomTemporyFileName();
             File tempFile = downloadData(fileName);
-            dataFile =
         } catch (IOException e) {
             if (Objects.isNull(existing)) {
                 throw new RuntimeException("Failed to download data", e);
@@ -33,8 +32,8 @@ public abstract class DataFetcher {
         }
 
         if (Objects.nonNull(dataFile)) {
-            parseData(dataFile);
-            ManifestManager.updateOrCreateEntry(getClass(), dataFile);
+            parseData(dataFile.toPath());
+            ManifestManager.updateOrCreateEntry(getClass(), dataFile.toPath());
         }
     }
 

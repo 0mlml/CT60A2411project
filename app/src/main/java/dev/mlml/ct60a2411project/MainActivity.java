@@ -1,25 +1,23 @@
 package dev.mlml.ct60a2411project;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
+import androidx.cardview.widget.CardView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 public class MainActivity extends AppCompatActivity {
-
+    CardView searchCard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        // Assuming you have a view with id 'myView' in your layout
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.appName), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        searchCard = findViewById(R.id.searchCard);
+        searchCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
