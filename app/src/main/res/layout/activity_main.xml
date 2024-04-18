@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/constraintLayout"
         android:layout_marginTop="20dp">
 
         <TextView
-            android:id="@+id/amazonName"
+            android:id="@+id/appName"
             android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="40dp"
-            android:text="Shit"
+            android:text="Shit APP"
             android:textColor="@color/lavender"
             android:textSize="40sp"
             app:layout_constraintEnd_toStartOf="@+id/AppImage"
@@ -26,16 +27,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/amazonDesc"
+            android:id="@+id/appMenu"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="18dp"
-            android:text="Shit"
+            android:text="Menu"
             android:textColor="@color/lavender"
-            android:textSize="14sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/AppImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amazonName" />
+            app:layout_constraintTop_toBottomOf="@id/appName" />
 
         <ImageView
             android:id="@+id/AppImage"
@@ -44,27 +45,30 @@
             android:layout_marginEnd="16dp"
             android:src="@android:drawable/ic_menu_mapmode"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/amazonName"
+            app:layout_constraintStart_toEndOf="@id/appName"
             app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="175dp"
             android:id="@+id/row1"
-            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
             android:layout_marginTop="10dp"
+            android:orientation="horizontal"
             android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/AppImage">
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/searchCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/clothingCard"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -73,29 +77,35 @@
                         android:id="@+id/search"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/clothingImage"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/imageSearchCities"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="29dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="29dp"
                         android:text="Search Cities"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/clothingImage"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:id="@+id/imageSearchCities"
+                        android:layout_width="129dp"
+                        android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:src="@android:drawable/alert_dark_frame" />
+                        android:src="@android:drawable/alert_dark_frame"
+                        tools:srcCompat="@tools:sample/avatars" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -104,18 +114,20 @@
                         android:id="@+id/explore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/elecImage"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif"
-                        android:text="Explore cities"
+                        android:layout_below="@+id/imageExploreCities"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="29dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="29dp"
+                        android:text="Explore Cities"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/elecImage"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:id="@+id/imageExploreCities"
+                        android:layout_width="129dp"
+                        android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:src="@android:drawable/alert_dark_frame" />
@@ -126,7 +138,7 @@
         <LinearLayout
             android:id="@+id/row2"
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="250dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:padding="10dp"
@@ -134,7 +146,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/row1">
+            app:layout_constraintTop_toBottomOf="@id/row1"
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -152,18 +165,20 @@
                         android:id="@+id/minigames"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/homeImage"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif"
-                        android:text="Minigames"
+                        android:layout_below="@+id/minigamesImage"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="29dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="29dp"
+                        android:text="Minigames Cities"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/homeImage"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:id="@+id/minigamesImage"
+                        android:layout_width="129dp"
+                        android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:src="@android:drawable/alert_dark_frame" />
@@ -186,18 +201,20 @@
                         android:id="@+id/compare"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/beautyImage"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif"
-                        android:text="Compare"
+                        android:layout_below="@+id/compareImage"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="29dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="29dp"
+                        android:text="Compare Cities"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/beautyImage"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:id="@+id/compareImage"
+                        android:layout_width="129dp"
+                        android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:src="@android:drawable/alert_dark_frame" />
