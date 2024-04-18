@@ -42,6 +42,7 @@ public class ManifestManager {
 
         return entries;
     }
+  
     public static void updateOrCreateEntry(Class<?> clazz, Path dataFile)  {
         File manifest = new File(manifestFileName);
         List<String[]> entries = new ArrayList<>();
