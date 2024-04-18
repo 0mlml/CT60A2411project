@@ -9,9 +9,7 @@ public class ManifestManager {
     public static void updateOrCreateEntry(Class<?> clazz, Path dataFile) {
         File manifest = new File(manifestFileName);
         String currentManifest = "";
-        if (manifest.exists()) {
-            currentManifest = manifest.;
-        }
+
 
     }
 }
