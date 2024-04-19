@@ -32,7 +32,7 @@ public class ListAdapter extends ArrayAdapter<ListData> implements Filterable {
         }
         ImageView listImage = convertView.findViewById(R.id.listImage);
         TextView listName = convertView.findViewById(R.id.listName);
-        TextView listTime = convertView.findViewById(R.id.listTime);
+        TextView listTime = convertView.findViewById(R.id.listPart);
         listImage.setImageResource(listData.image);
         listName.setText(listData.name);
         listTime.setText(listData.time);
