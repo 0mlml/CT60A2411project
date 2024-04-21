@@ -25,6 +25,10 @@
 
         <activity android:name=".DetailedCity" />
 
+        <activity android:name=".ExploreActivity" />
+
+        <activity android:name=".MinigamesActivity" />
+
     </application>
 
 </manifest>
