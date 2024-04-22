@@ -15,42 +15,33 @@
         android:layout_marginTop="20dp">
 
         <TextView
-            android:id="@+id/appName"
-            android:layout_width="144dp"
-            android:layout_height="118dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="40dp"
-            android:text="Shit APP"
+            android:id="@+id/minigames"
+            android:layout_width="384dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Minigames"
             android:textColor="@color/lavender"
             android:textSize="34sp"
-            app:layout_constraintEnd_toStartOf="@+id/AppImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/AppImage"
-            android:layout_width="0dp"
-            android:layout_height="160dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/finland"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/appName"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/row1"
-            android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="407dp"
+            android:layout_height="297dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
             android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/row2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/AppImage">
+            app:layout_constraintTop_toBottomOf="@+id/minigames">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/searchCard"
+                android:id="@+id/flashcardCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -66,30 +57,30 @@
                         android:id="@+id/flashcards"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imageSearchCities"
+                        android:layout_below="@+id/imageFlashCards"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="29dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="29dp"
-                        android:text="Search Cities"
+                        android:text="Flashcards"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageSearchCities"
+                        android:id="@+id/imageFlashCards"
                         android:layout_width="129dp"
                         android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:src="@drawable/city"
-                        tools:src="@drawable/city"
-                        tools:srcCompat="@drawable/city" />
+                        android:src="@drawable/flashcards"
+                        tools:src="@drawable/flashcards"
+                        tools:srcCompat="@drawable/flashcards" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/exploreCard"
+                android:id="@+id/quizCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -105,31 +96,31 @@
                         android:id="@+id/quiz"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imageExploreCities"
+                        android:layout_below="@+id/imageQuiz"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="29dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="29dp"
-                        android:text="Explore Cities"
+                        android:text="Quiz"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageExploreCities"
-                        android:layout_width="129dp"
+                        android:id="@+id/imageQuiz"
+                        android:layout_width="match_parent"
                         android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:src="@android:drawable/ic_menu_search" />
+                        android:src="@drawable/quiz" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/row2"
-            android:layout_width="0dp"
-            android:layout_height="250dp"
+            android:layout_width="412dp"
+            android:layout_height="314dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:padding="10dp"
@@ -141,7 +132,7 @@
             app:layout_constraintVertical_bias="1.0">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/minigamesCard"
+                android:id="@+id/guessTheCityCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -157,28 +148,28 @@
                         android:id="@+id/qtc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/minigamesImage"
+                        android:layout_below="@+id/qtcImage"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="29dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="29dp"
-                        android:text="Minigames Cities"
+                        android:text="Quess the city"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/minigamesImage"
+                        android:id="@+id/qtcImage"
                         android:layout_width="129dp"
                         android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:src="@drawable/controllers" />
+                        android:src="@drawable/qtc" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/compareCard"
+                android:id="@+id/higherLowerCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -194,28 +185,25 @@
                         android:id="@+id/hol"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/compareImage"
+                        android:layout_below="@+id/holImage"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="29dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="29dp"
-                        android:text="Compare Cities"
+                        android:text="Higher or lower"
                         android:textColor="@color/lavender"
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/compareImage"
+                        android:id="@+id/holImage"
                         android:layout_width="129dp"
                         android:layout_height="167dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:src="@drawable/versus" />
+                        android:src="@drawable/hol" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-
-
-    
