@@ -1,58 +1,89 @@
 package dev.mlml.ct60a2411project.data;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.file.Path;
-import java.util.Map;
-import java.util.Objects;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
-public abstract class DataFetcher {
-    public DataFetcher(URL url) {
+public abstract class DataFetcher<T extends GenericData> {
+    protected T data;
 
+    protected T fetchData() {
+        return null;
     }
 
-    public void update(boolean force) {
-        Path existing = ManifestManager.getExistingDataFile(getClass());
-        if (!force && Objects.nonNull(existing)) {
-            return;
-        }
+    protected Future<String> post(URL url, String requestBody) {
+        Callable<String> callable = () -> {
+            HttpURLConnection connection = null;
+            try {
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                connection.setRequestProperty("Accept", "application/json");
+                connection.setDoOutput(true);
 
-        File dataFile = new File(System.getProperty("java.io.tmpdir") + File.separator + randomTemporyFileName());
+                try (OutputStream os = connection.getOutputStream()) {
+                    byte[] input = requestBody.getBytes("utf-8");
+                    os.write(input, 0, input.length);
+                }
 
-        try {
-            String fileName = randomTemporyFileName();
-            File tempFile = downloadData(fileName);
-        } catch (IOException e) {
-            if (Objects.isNull(existing)) {
-                throw new RuntimeException("Failed to download data", e);
+                StringBuilder response = new StringBuilder();
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        response.append(responseLine.trim());
+                    }
+                }
+
+                return response.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
             }
-            return;
-        }
+        };
 
-        if (Objects.nonNull(dataFile)) {
-            parseData(dataFile.toPath());
-            ManifestManager.updateOrCreateEntry(getClass(), dataFile.toPath());
-        }
+        FutureTask<String> futureTask = new FutureTask<>(callable);
+        new Thread(futureTask).start();
+        return futureTask;
     }
 
-    private void parseData(Path dataFile) {
-        // Parse the data file
-    }
+    protected Future<String> get(URL url) {
+        Callable<String> callable = () -> {
+            HttpURLConnection connection = null;
+            try {
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setRequestProperty("Accept", "application/json");
 
-    private String randomTemporyFileName() {
-        return getClass().getName() + "-" + System.currentTimeMillis();
-    }
+                StringBuilder response = new StringBuilder();
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        response.append(responseLine.trim());
+                    }
+                }
 
-    private File downloadData(String fileName) throws IOException {
-        String outputPath = System.getProperty("java.io.tmpdir") + File.separator + fileName;
-        File outputFile = new File(outputPath);
-        outputFile.createNewFile();
-        return outputFile;
-    }
+                return response.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+            }
+        };
 
-    public record DataEntry(Enum<?> type, String key, String value) {
-
+        FutureTask<String> futureTask = new FutureTask<>(callable);
+        new Thread(futureTask).start();
+        return futureTask;
     }
 }

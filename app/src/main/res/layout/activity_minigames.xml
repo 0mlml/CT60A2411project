@@ -5,7 +5,7 @@
     android:id="@+id/Image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     android:background="@drawable/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/minigames">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/flashCardsCard"
+                android:id="@+id/flashcardCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -132,7 +132,7 @@
             app:layout_constraintVertical_bias="1.0">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/qtcCard"
+                android:id="@+id/guessTheCityCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -169,7 +169,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/holCard"
+                android:id="@+id/higherLowerCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"

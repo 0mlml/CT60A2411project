@@ -1,4 +1,4 @@
-package dev.mlml.ct60a2411project;
+package dev.mlml.ct60a2411project.ui.explore;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +11,8 @@ import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
+
+import dev.mlml.ct60a2411project.R;
 
 public class ExploreActivity extends AppCompatActivity {
 
