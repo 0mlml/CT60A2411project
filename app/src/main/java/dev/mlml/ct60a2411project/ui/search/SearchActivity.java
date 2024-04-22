@@ -6,6 +6,7 @@ import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,6 +43,8 @@ public class SearchActivity extends AppCompatActivity {
             String cityName = searchableListAdapter.getItem(position);
             Intent intent = new Intent(SearchActivity.this, CityDetailsActivity.class);
             intent.putExtra("name", cityName);
+            intent.putExtra("image", getResources().getIdentifier(Normalizer.normalize(city, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
+            intent.putExtra("area", cityName);
             startActivity(intent);
         });
     }

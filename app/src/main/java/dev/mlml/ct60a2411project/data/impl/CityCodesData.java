@@ -38,6 +38,10 @@ public class CityCodesData extends GenericData {
     private VariableDataEntry regions;
     private VariableDataEntry informations;
 
+    public String getAreaByName(String name) {
+        return regions.valueTexts.get(regions.values.indexOf(name));
+    }
+
     public CityCodesData(String json) {
         Gson gson = new Gson();
         statistics = gson.fromJson(json, Statistics.class);

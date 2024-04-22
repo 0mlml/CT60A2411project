@@ -1,6 +1,7 @@
 package dev.mlml.ct60a2411project.ui.search;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.Normalizer;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -36,7 +38,10 @@ public class SearchableListAdapter extends ArrayAdapter<String> implements Filte
         if (Objects.isNull(convertView)) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_city, parent, false);
         }
-        ((ImageView) convertView.findViewById(R.id.listImage)).setImageResource(R.drawable.finland);
+        String cityNameNormalized = Normalizer.normalize(city, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase();
+        int resId = getContext().getResources().getIdentifier(cityNameNormalized, "drawable", getContext().getPackageName());
+        Log.d("SearchableListAdapter", String.format("Name: %s, Resource ID: %d", cityNameNormalized, resId));
+        ((ImageView) convertView.findViewById(R.id.listImage)).setImageResource(resId);
         ((TextView) convertView.findViewById(R.id.listName)).setText(city);
         return convertView;
     }
