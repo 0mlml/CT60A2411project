@@ -20,9 +20,10 @@
             android:layout_height="118dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="40dp"
-            android:text="kljasdjkl"
+            android:fontFamily="sans-serif-black"
+            android:text="Municipality App"
             android:textColor="@color/lavender"
-            android:textSize="34sp"
+            android:textSize="23sp"
             app:layout_constraintEnd_toStartOf="@+id/AppImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
