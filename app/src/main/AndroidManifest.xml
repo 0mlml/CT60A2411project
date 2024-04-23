@@ -31,8 +31,13 @@
         <activity android:name=".ui.compare.CompareActivity" />
 
         <activity android:name=".ui.minigame.impl.QuizActivity" />
-
         <activity android:name=".ui.minigame.impl.QuizResultActivity" />
+
+        <activity android:name=".ui.minigame.impl.HigherLowerActivity" />
+
+        <activity android:name=".ui.minigame.impl.GuessTheCityActivity" />
+
+        <activity android:name=".ui.minigame.impl.FlashCardsActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

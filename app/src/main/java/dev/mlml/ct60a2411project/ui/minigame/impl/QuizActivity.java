@@ -52,14 +52,12 @@ public class QuizActivity extends AppCompatActivity {
         String name = CityCodesDataFetcher.getRegions().get().get(area);
         String cityNameNormalized = Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase();
         int resId = getResources().getIdentifier(cityNameNormalized, "drawable", getPackageName());
-        Log.d("QuizActivity", "Got city name: " + name + ", resId: " + resId);
 
         ((ImageView) findViewById(R.id.quizCityCoatOfArms)).setImageResource(resId);
         ((TextView) findViewById(R.id.quizCityNameTextView)).setText(name);
         ((TextView) findViewById(R.id.quizProgressTextView)).setText(quiz.getProgress());
         ((TextView) findViewById(R.id.quizScoreTextView)).setText(quiz.getScore());
 
-        Log.d("QuizActivity", "Set text views.");
 
         Quiz.Question question = quiz.getCurrentQuestion();
         ((TextView) findViewById(R.id.quizQuestionTextView)).setText(question.question());
@@ -72,9 +70,6 @@ public class QuizActivity extends AppCompatActivity {
             radioButton.setText(answer);
             radioGroup.addView(radioButton);
         }
-
-        Log.d("QuizActivity", "Question: " + question.question());
-        Log.d("QuizActivity", "Correct answer: " + question.correctAnswer());
 
         String finalArea = area;
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {

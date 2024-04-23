@@ -6,55 +6,55 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/vaakunaRight"
+        android:id="@+id/higherLowerCoatOfArmsRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="272dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/vaakunaLeft"
+        app:layout_constraintStart_toEndOf="@+id/higherLowerCoatOfArmsLeft"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/chooseButtonLeft"
+        android:id="@+id/higherLowerChooseLeftButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="273dp"
-        android:text="Button"
+        android:text="Yes"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/chooseButtonRight"
+        app:layout_constraintEnd_toStartOf="@+id/higherLowerChooseRightButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/chooseButtonRight"
+        android:id="@+id/higherLowerChooseRightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="274dp"
-        android:text="Button"
+        android:text="No"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/chooseButtonLeft" />
+        app:layout_constraintStart_toEndOf="@+id/higherLowerChooseLeftButton" />
 
     <ImageView
-        android:id="@+id/vaakunaLeft"
+        android:id="@+id/higherLowerCoatOfArmsLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="272dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/vaakunaRight"
+        app:layout_constraintEnd_toStartOf="@+id/higherLowerCoatOfArmsRight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/scoreText"
+        android:id="@+id/higherLowerScoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="146dp"
@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/questionText"
+        android:id="@+id/higherLowerQuestionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/higherLowerScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
@@ -85,16 +85,16 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
+        app:layout_constraintTop_toBottomOf="@+id/higherLowerScoreText" />
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/higherLowerQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
+        app:layout_constraintTop_toBottomOf="@+id/higherLowerQuestionText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

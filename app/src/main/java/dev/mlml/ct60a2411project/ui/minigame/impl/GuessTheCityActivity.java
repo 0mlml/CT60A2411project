@@ -1,4 +1,6 @@
 package dev.mlml.ct60a2411project.ui.minigame.impl;
 
-public class GuessTheCityActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class GuessTheCityActivity extends AppCompatActivity {
 }

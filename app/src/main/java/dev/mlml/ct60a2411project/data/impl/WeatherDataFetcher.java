@@ -33,7 +33,7 @@ public class WeatherDataFetcher extends DataFetcher {
 
             Log.d("WeatherDataFetcher", String.format("Fetched data for %s.", city));
 
-            WeatherData weatherData = new WeatherData(weatherResponse);
+            WeatherData weatherData = new WeatherData(weatherResponse, coordinates);
 
             cache.put(city, weatherData);
             return weatherData;

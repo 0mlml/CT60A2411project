@@ -70,6 +70,9 @@ public class WeatherData {
         long sunset;
     }
 
+    private final double lat;
+    private final double lon;
+
     private final double temperature;
     private final double feelsLike;
     private final double minTemperature;
@@ -95,9 +98,12 @@ public class WeatherData {
         return new double[]{locs.get(0).lat, locs.get(0).lon};
     }
 
-    public WeatherData(String json) {
+    public WeatherData(String json, double[] coords) {
         Gson gson = new Gson();
         WeatherInfo data = gson.fromJson(json, WeatherInfo.class);
+
+        lat = coords[0];
+        lon = coords[1];
 
         temperature = data.main.temp;
         feelsLike = data.main.feels_like;
