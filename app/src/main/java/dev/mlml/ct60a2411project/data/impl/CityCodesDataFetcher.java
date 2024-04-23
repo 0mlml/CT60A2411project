@@ -62,7 +62,7 @@ public class CityCodesDataFetcher extends DataFetcher {
         try {
             url = new URL(endpoint);
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("CityCodesDataFetcher", "Failed to create URL.", e);
             return null;
         }
 
@@ -70,7 +70,7 @@ public class CityCodesDataFetcher extends DataFetcher {
         try {
             response = get(url).get();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("CityCodesDataFetcher", "Failed to fetch data.", e);
             return null;
         }
 
