@@ -1,43 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxStrokeWidthFocused="0sp"
-        app:boxStrokeWidth="0sp"
-        android:hint="Select an option"
-        android:id="@+id/inputLayout"
-        android:layout_marginStart="25sp"
-        android:layout_marginEnd="25sp"
-        android:layout_centerInParent="true"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        app:boxCornerRadiusTopStart="10sp"
-        app:boxCornerRadiusTopEnd="10sp"
-        app:boxCornerRadiusBottomStart="10sp"
-        app:boxCornerRadiusBottomEnd="10sp">
-
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/inputTV"
-            android:inputType="none"
-            app:simpleItems="@array/options_list" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
+    <TextView
+        android:id="@+id/exploreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/inputLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20sp"
-        android:id="@+id/btn"
-        android:text="Show toast"/>
+        android:layout_marginTop="35dp"
+        android:text="Explore new municipalities:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/buttonHot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPopulationUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exploreText" />
+
+    <Button
+        android:id="@+id/buttonCold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPopulationDown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHot" />
+
+    <Button
+        android:id="@+id/buttonPopulationUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/buttonImigration"
+        app:layout_constraintStart_toEndOf="@+id/buttonHot"
+        app:layout_constraintTop_toBottomOf="@+id/exploreText" />
+
+    <Button
+        android:id="@+id/buttonPopulationDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/buttonEmegration"
+        app:layout_constraintStart_toEndOf="@+id/buttonCold"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPopulationUp" />
+
+    <Button
+        android:id="@+id/buttonImigration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonPopulationUp"
+        app:layout_constraintTop_toBottomOf="@+id/exploreText" />
+
+    <Button
+        android:id="@+id/buttonEmegration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonPopulationDown"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImigration" />
+</androidx.constraintlayout.widget.ConstraintLayout>

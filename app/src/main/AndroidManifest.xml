@@ -30,6 +30,7 @@
 
         <activity android:name=".ui.compare.CompareActivity" />
 
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
