@@ -10,9 +10,9 @@ import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.List;
 
+import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
 import dev.mlml.ct60a2411project.databinding.ActivitySearchBinding;
 import dev.mlml.ct60a2411project.ui.CityDetailsActivity;
-import dev.mlml.ct60a2411project.ui.MainActivity;
 
 public class SearchActivity extends AppCompatActivity {
     ActivitySearchBinding binding;
@@ -27,7 +27,7 @@ public class SearchActivity extends AppCompatActivity {
 
         HashMap<String, String> regions;
         try {
-            regions = MainActivity.cityCodesDataFetcher.getRegions().get();
+            regions = CityCodesDataFetcher.getRegions().get();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -43,8 +43,8 @@ public class SearchActivity extends AppCompatActivity {
             String cityName = searchableListAdapter.getItem(position);
             Intent intent = new Intent(SearchActivity.this, CityDetailsActivity.class);
             intent.putExtra("name", cityName);
-            intent.putExtra("image", getResources().getIdentifier(Normalizer.normalize(city, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
-            intent.putExtra("area", cityName);
+            intent.putExtra("imageResId", getResources().getIdentifier(Normalizer.normalize(cityName, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
+            intent.putExtra("area", CityCodesDataFetcher.getData().getAreaByName(cityName));
             startActivity(intent);
         });
     }

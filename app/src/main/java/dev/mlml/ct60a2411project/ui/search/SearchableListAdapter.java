@@ -1,7 +1,6 @@
 package dev.mlml.ct60a2411project.ui.search;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import dev.mlml.ct60a2411project.R;
 
@@ -40,7 +39,6 @@ public class SearchableListAdapter extends ArrayAdapter<String> implements Filte
         }
         String cityNameNormalized = Normalizer.normalize(city, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase();
         int resId = getContext().getResources().getIdentifier(cityNameNormalized, "drawable", getContext().getPackageName());
-        Log.d("SearchableListAdapter", String.format("Name: %s, Resource ID: %d", cityNameNormalized, resId));
         ((ImageView) convertView.findViewById(R.id.listImage)).setImageResource(resId);
         ((TextView) convertView.findViewById(R.id.listName)).setText(city);
         return convertView;
@@ -61,11 +59,17 @@ public class SearchableListAdapter extends ArrayAdapter<String> implements Filte
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                List<String> filteredList = ((constraint == null) || (constraint.length() == 0)) ? cityList : cityList.stream().filter(city -> city.toLowerCase().contains(constraint.toString().toLowerCase())).collect(Collectors.toList());
+                List<String> resultList = new ArrayList<>();
+
+                if (constraint == null || constraint.length() == 0) {
+                    resultList.addAll(cityList);
+                } else {
+                    resultList.addAll(cityList.stream().filter(city -> city.toLowerCase().contains(constraint.toString().toLowerCase())).toList());
+                }
 
                 FilterResults results = new FilterResults();
-                results.values = filteredList;
-                results.count = filteredList.size();
+                results.values = resultList;
+                results.count = resultList.size();
                 return results;
             }
 

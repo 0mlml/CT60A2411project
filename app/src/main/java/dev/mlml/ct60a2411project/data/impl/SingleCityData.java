@@ -29,7 +29,7 @@ public class SingleCityData {
         List<String> values;
     }
 
-    protected record IntegerDataEntry(
+    public record IntegerDataEntry(
             String text,
             String comment,
             int value) {
@@ -63,27 +63,26 @@ public class SingleCityData {
         for (int i = 0; i < columns.size(); i++) {
             Column column = columns.get(i);
             for (int j = 0; j < dataValues.size(); j++) {
-                IntegerDataEntry currentDataEntry = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                 SingleCityData currentCityData = data.get(dataValues.get(j).get(1));
                 switch (column.code) {
                     case "Alue" ->
                             currentCityData.area = dataValues.get(j).get(i);
                     case "vm01" ->
-                            currentCityData.liveBirths = currentDataEntry;
+                            currentCityData.liveBirths = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "vm11" ->
-                            currentCityData.deaths = currentDataEntry;
+                            currentCityData.deaths = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "vm41" ->
-                            currentCityData.immigration = currentDataEntry;
+                            currentCityData.immigration = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "vm42" ->
-                            currentCityData.emigration = currentDataEntry;
+                            currentCityData.emigration = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "vm2126" ->
-                            currentCityData.marriages = currentDataEntry;
+                            currentCityData.marriages = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "vm3136" ->
-                            currentCityData.divorces = currentDataEntry;
+                            currentCityData.divorces = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "kokmuutos" ->
-                            currentCityData.totalChange = currentDataEntry;
+                            currentCityData.totalChange = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                     case "vaesto" ->
-                            currentCityData.population = currentDataEntry;
+                            currentCityData.population = new IntegerDataEntry(column.text, column.comment, Integer.parseInt(dataValues.get(j).get(i)));
                 }
             }
         }

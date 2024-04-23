@@ -28,6 +28,8 @@
 
         <activity android:name=".ui.minigame.MinigameSplashActivity" />
 
+        <activity android:name=".ui.compare.CompareActivity" />
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -6,11 +6,10 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-import dev.mlml.ct60a2411project.data.GenericData;
 import lombok.Data;
 
 @Data
-public class CityCodesData extends GenericData {
+public class CityCodesData {
     private class Statistics {
         String title;
         List<Variable> variables;
@@ -39,7 +38,12 @@ public class CityCodesData extends GenericData {
     private VariableDataEntry informations;
 
     public String getAreaByName(String name) {
-        return regions.valueTexts.get(regions.values.indexOf(name));
+        int index = regions.valueTexts.indexOf(name);
+        if (index == -1) {
+            Log.w("CityCodesData", String.format("Area %s not found.", name));
+            return null;
+        }
+        return regions.values.get(index);
     }
 
     public CityCodesData(String json) {

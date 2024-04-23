@@ -10,13 +10,24 @@ import java.util.concurrent.FutureTask;
 import dev.mlml.ct60a2411project.data.DataFetcher;
 import lombok.Getter;
 
-public class CityCodesDataFetcher extends DataFetcher<CityCodesData> {
-    private final String endpoint = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px";
+public class CityCodesDataFetcher extends DataFetcher {
+    @Getter
+    private static CityCodesData data;
+
+    private final static String endpoint = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px";
 
     @Getter
-    private final HashMap<String, String> regions = new HashMap<>();
+    private final static HashMap<String, String> regions = new HashMap<>();
 
-    public CityCodesDataFetcher() {
+    private static boolean initialized = false;
+
+    public static void init() {
+        if (initialized) {
+            Log.w("CityCodesDataFetcher", "Already initialized.");
+            return;
+        }
+        initialized = true;
+
         Log.d("CityCodesDataFetcher", "Fetching data.");
         data = fetchData();
 
@@ -27,9 +38,12 @@ public class CityCodesDataFetcher extends DataFetcher<CityCodesData> {
         Log.d("CityCodesDataFetcher", String.format("Fetched %d regions.", regions.size()));
     }
 
-    public Future<HashMap<String, String>> getRegions() {
+    public static Future<HashMap<String, String>> getRegions() {
         FutureTask<HashMap<String, String>> futureTask = new FutureTask<>(() -> {
             while (regions.isEmpty()) {
+                if (!initialized) {
+                    init();
+                }
                 Thread.sleep(100);
             }
             return regions;
@@ -38,8 +52,7 @@ public class CityCodesDataFetcher extends DataFetcher<CityCodesData> {
         return futureTask;
     }
 
-    @Override
-    protected CityCodesData fetchData() {
+    private static CityCodesData fetchData() {
         URL url;
         try {
             url = new URL(endpoint);

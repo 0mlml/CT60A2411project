@@ -9,14 +9,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
-public abstract class DataFetcher<T extends GenericData> {
-    protected T data;
-
-    protected T fetchData() {
-        return null;
-    }
-
-    protected Future<String> post(URL url, String requestBody) {
+public abstract class DataFetcher {
+    protected static Future<String> post(URL url, String requestBody) {
         Callable<String> callable = () -> {
             HttpURLConnection connection = null;
             try {
@@ -55,7 +49,7 @@ public abstract class DataFetcher<T extends GenericData> {
         return futureTask;
     }
 
-    protected Future<String> get(URL url) {
+    protected static Future<String> get(URL url) {
         Callable<String> callable = () -> {
             HttpURLConnection connection = null;
             try {
