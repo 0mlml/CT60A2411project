@@ -31,6 +31,11 @@ public class CityCodesDataFetcher extends DataFetcher {
         Log.d("CityCodesDataFetcher", "Fetching data.");
         data = fetchData();
 
+        if (data == null) {
+            Log.e("CityCodesDataFetcher", "Failed to fetch data.");
+            return;
+        }
+
         for (String region : data.getRegions().values()) {
             regions.put(region, data.getRegions().valueTexts().get(data.getRegions().values().indexOf(region)));
         }

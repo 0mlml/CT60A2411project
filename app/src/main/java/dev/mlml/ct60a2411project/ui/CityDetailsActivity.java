@@ -45,7 +45,7 @@ public class CityDetailsActivity extends AppCompatActivity {
             binding.detailImage.setImageResource(intent.getIntExtra("imageResId", R.drawable.finland));
 
             binding.comparisonButton.setOnClickListener(view -> {
-                Comparator.addToCompare(area);
+                Comparator.addToCompare(area, intent.getStringExtra("name"), intent.getIntExtra("imageResId", R.drawable.finland));
                 Log.d("CityDetailsActivity", "Added " + area + " to comparison");
             });
         }
