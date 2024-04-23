@@ -7,8 +7,8 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import dev.mlml.ct60a2411project.R;
-import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
 import dev.mlml.ct60a2411project.data.impl.CityData;
+import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
 import dev.mlml.ct60a2411project.data.impl.WeatherData;
 import dev.mlml.ct60a2411project.data.impl.WeatherDataFetcher;
 import dev.mlml.ct60a2411project.databinding.ActivityDetailedCityBinding;

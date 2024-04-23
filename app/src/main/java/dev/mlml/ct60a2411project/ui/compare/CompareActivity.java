@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import dev.mlml.ct60a2411project.R;
-import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
 import dev.mlml.ct60a2411project.data.impl.CityData;
+import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
 import dev.mlml.ct60a2411project.ui.MainActivity;
 
 public class CompareActivity extends AppCompatActivity {

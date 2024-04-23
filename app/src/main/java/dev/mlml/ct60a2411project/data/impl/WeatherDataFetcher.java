@@ -10,12 +10,24 @@ import java.util.concurrent.FutureTask;
 
 import dev.mlml.ct60a2411project.data.DataFetcher;
 
+/**
+ * This class extends DataFetcher and is responsible for fetching weather data.
+ * It includes a method for getting weather data for a specific city.
+ */
 public class WeatherDataFetcher extends DataFetcher {
-    private final static HashMap<String, WeatherData> cache = new HashMap<>();
+    private final static HashMap<String, WeatherData> cache = new HashMap<>(); // Cache for storing fetched weather data
 
-    private final static String geoQueryEndpoint = "https://api.openweathermap.org/geo/1.0/direct?q=%s,FI&limit=1&appid=dcecd0d1600d4eb8f477e45da971cc7b";
-    private final static String weatherQueryEndpoint = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&units=metric&appid=dcecd0d1600d4eb8f477e45da971cc7b";
+    private final static String geoQueryEndpoint = "https://api.openweathermap.org/geo/1.0/direct?q=%s,FI&limit=1&appid=dcecd0d1600d4eb8f477e45da971cc7b"; // The endpoint for fetching geographic data
+    private final static String weatherQueryEndpoint = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&units=metric&appid=dcecd0d1600d4eb8f477e45da971cc7b"; // The endpoint for fetching weather data
 
+    /**
+     * This method gets weather data for a specific city.
+     * If the data is already in the cache, it returns the cached data.
+     * Otherwise, it fetches the geographic data, then fetches the weather data, and adds the weather data to the cache.
+     *
+     * @param city The city to get weather data for.
+     * @return A Future of the fetched WeatherData.
+     */
     public static Future<WeatherData> getWeatherData(String city) {
         FutureTask<WeatherData> futureTask = new FutureTask<>(() -> {
             if (cache.containsKey(city)) {

@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;

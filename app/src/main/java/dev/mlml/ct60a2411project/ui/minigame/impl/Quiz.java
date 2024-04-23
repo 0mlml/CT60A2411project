@@ -1,8 +1,6 @@
 package dev.mlml.ct60a2411project.ui.minigame.impl;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -17,45 +15,7 @@ import dev.mlml.ct60a2411project.data.impl.WeatherDataFetcher;
 import lombok.SneakyThrows;
 
 public class Quiz {
-    public record Question(
-            String question,
-            String correctAnswer,
-            String... wrongAnswers) {
-    }
-
-    public static class RunningQuiz {
-        private final String area;
-        private final List<Question> questions;
-        private int currentQuestion = 0;
-        private int correct = 0;
-
-        public RunningQuiz(String area, List<Question> questions) {
-            this.area = area;
-            this.questions = questions;
-        }
-
-        public Question getCurrentQuestion() {
-            if (currentQuestion >= questions.size()) {
-                return null;
-            }
-            return questions.get(currentQuestion);
-        }
-
-        public String getScore() {
-            return correct + "/" + questions.size();
-        }
-
-        public String getProgress() {
-            return (currentQuestion + 1) + "/" + questions.size();
-        }
-
-        public void progress(boolean correct) {
-            if (correct) {
-                this.correct++;
-            }
-            currentQuestion++;
-        }
-    }
+    private static final Map<String, RunningQuiz> quizCache = new HashMap<>();
 
     public static RunningQuiz getQuiz(String area) {
         if (quizCache.containsKey(area)) {
@@ -70,8 +30,6 @@ public class Quiz {
             quiz.progress(correct);
         }
     }
-
-    private static final Map<String, RunningQuiz> quizCache = new HashMap<>();
 
     private static String wiggle(int value) {
         float wiggle = value / 6f;
@@ -164,5 +122,45 @@ public class Quiz {
         RunningQuiz quiz = new RunningQuiz(area, randomizedQuestions.subList(0, 10));
         quizCache.put(area, quiz);
         return quiz;
+    }
+
+    public record Question(
+            String question,
+            String correctAnswer,
+            String... wrongAnswers) {
+    }
+
+    public static class RunningQuiz {
+        private final String area;
+        private final List<Question> questions;
+        private int currentQuestion = 0;
+        private int correct = 0;
+
+        public RunningQuiz(String area, List<Question> questions) {
+            this.area = area;
+            this.questions = questions;
+        }
+
+        public Question getCurrentQuestion() {
+            if (currentQuestion >= questions.size()) {
+                return null;
+            }
+            return questions.get(currentQuestion);
+        }
+
+        public String getScore() {
+            return correct + "/" + questions.size();
+        }
+
+        public String getProgress() {
+            return (currentQuestion + 1) + "/" + questions.size();
+        }
+
+        public void progress(boolean correct) {
+            if (correct) {
+                this.correct++;
+            }
+            currentQuestion++;
+        }
     }
 }

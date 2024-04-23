@@ -21,7 +21,7 @@ import java.util.Objects;
 import dev.mlml.ct60a2411project.R;
 
 public class SearchableListAdapter extends ArrayAdapter<String> implements Filterable {
-    private List<String> cityList;
+    private final List<String> cityList;
     private List<String> displayed; // Filtered list
 
     public SearchableListAdapter(@NonNull Context context, List<String> cityList) {

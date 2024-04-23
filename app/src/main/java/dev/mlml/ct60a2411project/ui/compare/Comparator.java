@@ -6,14 +6,8 @@ import java.util.List;
 import lombok.Getter;
 
 public class Comparator {
-    public record ComparisonCity(
-            String area,
-            String name,
-            int imageResId) {
-    }
-
     @Getter
-    private static List<ComparisonCity[]> history = new ArrayList<>();
+    private static final List<ComparisonCity[]> history = new ArrayList<>();
     @Getter
     private static ComparisonCity[] current = new ComparisonCity[2];
 
@@ -37,5 +31,11 @@ public class Comparator {
             current[0] = current[1];
             current[1] = new ComparisonCity(area, name, imageResId);
         }
+    }
+
+    public record ComparisonCity(
+            String area,
+            String name,
+            int imageResId) {
     }
 }

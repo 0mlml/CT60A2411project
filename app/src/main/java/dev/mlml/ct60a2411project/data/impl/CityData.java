@@ -10,31 +10,13 @@ import java.util.stream.Stream;
 
 import lombok.Data;
 
+/**
+ * This class represents the data for a city.
+ * It includes nested classes for StatisticsData, Column, and DataEntry, and a record for IntegerDataEntry.
+ * It also includes methods for parsing the data from a JSON string.
+ */
 @Data
 public class CityData {
-    private class StatisticsData {
-        List<Column> columns;
-        List<DataEntry> data;
-    }
-
-    private class Column {
-        String code;
-        String text;
-        String comment;
-        String type;
-    }
-
-    public class DataEntry {
-        List<String> key;
-        List<String> values;
-    }
-
-    public record IntegerDataEntry(
-            String text,
-            String comment,
-            int value) {
-    }
-
     private String area;
     private IntegerDataEntry liveBirths; // In data: vm01
     private IntegerDataEntry deaths; // In data: vm11
@@ -44,10 +26,17 @@ public class CityData {
     private IntegerDataEntry divorces; // In data: vm3136
     private IntegerDataEntry totalChange; // In data: kokmuutos
     private IntegerDataEntry population; // In data: vaesto
-
     public CityData() {
     }
 
+    /**
+     * This method parses the city data from a JSON string.
+     * It uses Gson to parse the JSON into a StatisticsData object.
+     * It then iterates over the columns and data entries to populate the city data.
+     *
+     * @param json The JSON string to parse the data from.
+     * @return A map of city data, keyed by area.
+     */
     public static HashMap<String, CityData> parseData(String json) {
         Gson gson = new Gson();
         StatisticsData statisticsData = gson.fromJson(json, StatisticsData.class);
@@ -88,5 +77,44 @@ public class CityData {
         }
 
         return data;
+    }
+
+    /**
+     * This record represents an entry in the integer data.
+     * It includes text, comment, and value.
+     */
+    public record IntegerDataEntry(
+            String text,
+            String comment,
+            int value) {
+    }
+
+    /**
+     * This class represents the statistics data for a city.
+     * It includes a list of columns and data entries.
+     */
+    private class StatisticsData {
+        List<Column> columns;
+        List<DataEntry> data;
+    }
+
+    /**
+     * This class represents a column in the statistics data.
+     * It includes a code, text, comment, and type.
+     */
+    private class Column {
+        String code;
+        String text;
+        String comment;
+        String type;
+    }
+
+    /**
+     * This class represents a data entry in the statistics data.
+     * It includes a key and a list of values.
+     */
+    public class DataEntry {
+        List<String> key;
+        List<String> values;
     }
 }

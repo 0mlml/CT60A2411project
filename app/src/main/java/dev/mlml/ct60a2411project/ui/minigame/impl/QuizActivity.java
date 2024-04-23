@@ -10,24 +10,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.Serializable;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
-import dev.mlml.ct60a2411project.data.impl.CityData;
-import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
-import dev.mlml.ct60a2411project.data.impl.WeatherData;
-import dev.mlml.ct60a2411project.data.impl.WeatherDataFetcher;
-import dev.mlml.ct60a2411project.ui.MainActivity;
-import dev.mlml.ct60a2411project.ui.compare.Comparator;
 import lombok.SneakyThrows;
 
 public class QuizActivity extends AppCompatActivity {

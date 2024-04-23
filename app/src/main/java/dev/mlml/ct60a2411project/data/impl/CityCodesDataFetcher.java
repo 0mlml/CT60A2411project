@@ -10,17 +10,23 @@ import java.util.concurrent.FutureTask;
 import dev.mlml.ct60a2411project.data.DataFetcher;
 import lombok.Getter;
 
+/**
+ * This class extends DataFetcher and is responsible for fetching city codes data.
+ * It includes methods for initializing the data, getting regions, and fetching data.
+ */
 public class CityCodesDataFetcher extends DataFetcher {
-    @Getter
-    private static CityCodesData data;
-
     private final static String endpoint = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px";
-
     @Getter
     private final static HashMap<String, String> regionsMap = new HashMap<>(); // region code -> region name
-
+    @Getter
+    private static CityCodesData data;
     private static boolean initialized = false;
 
+    /**
+     * This method initializes the data.
+     * If the data is already initialized, it logs a warning and returns.
+     * Otherwise, it fetches the data and populates the regions map.
+     */
     public static void init() {
         if (initialized) {
             Log.w("CityCodesDataFetcher", "Already initialized.");
@@ -43,6 +49,12 @@ public class CityCodesDataFetcher extends DataFetcher {
         Log.d("CityCodesDataFetcher", String.format("Fetched %d regions.", regionsMap.size()));
     }
 
+    /**
+     * This method returns a Future of the regions map.
+     * It waits until the regions map is populated before returning.
+     *
+     * @return A Future of the regions map.
+     */
     public static Future<HashMap<String, String>> getRegions() {
         FutureTask<HashMap<String, String>> futureTask = new FutureTask<>(() -> {
             while (regionsMap.isEmpty()) {
@@ -57,6 +69,12 @@ public class CityCodesDataFetcher extends DataFetcher {
         return futureTask;
     }
 
+    /**
+     * This method fetches the city codes data.
+     * It creates a URL from the endpoint, fetches the data, and initializes a CityCodesData object from the response.
+     *
+     * @return The fetched CityCodesData, or null if the fetch failed.
+     */
     private static CityCodesData fetchData() {
         URL url;
         try {
