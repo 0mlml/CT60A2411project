@@ -17,7 +17,7 @@ public class CityCodesDataFetcher extends DataFetcher {
     private final static String endpoint = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px";
 
     @Getter
-    private final static HashMap<String, String> regions = new HashMap<>();
+    private final static HashMap<String, String> regionsMap = new HashMap<>(); // region code -> region name
 
     private static boolean initialized = false;
 
@@ -37,21 +37,21 @@ public class CityCodesDataFetcher extends DataFetcher {
         }
 
         for (String region : data.getRegions().values()) {
-            regions.put(region, data.getRegions().valueTexts().get(data.getRegions().values().indexOf(region)));
+            regionsMap.put(region, data.getRegions().valueTexts().get(data.getRegions().values().indexOf(region)));
         }
 
-        Log.d("CityCodesDataFetcher", String.format("Fetched %d regions.", regions.size()));
+        Log.d("CityCodesDataFetcher", String.format("Fetched %d regions.", regionsMap.size()));
     }
 
     public static Future<HashMap<String, String>> getRegions() {
         FutureTask<HashMap<String, String>> futureTask = new FutureTask<>(() -> {
-            while (regions.isEmpty()) {
+            while (regionsMap.isEmpty()) {
                 if (!initialized) {
                     init();
                 }
                 Thread.sleep(100);
             }
-            return regions;
+            return regionsMap;
         });
         new Thread(futureTask).start();
         return futureTask;

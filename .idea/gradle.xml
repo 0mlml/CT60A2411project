@@ -8,8 +8,8 @@
         <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="/mnt/bigstorage/devel/java/CT60A2411project" />
+            <option value="/mnt/bigstorage/devel/java/CT60A2411project/app" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

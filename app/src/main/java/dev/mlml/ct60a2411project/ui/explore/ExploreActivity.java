@@ -25,14 +25,11 @@ public class ExploreActivity extends AppCompatActivity {
         MaterialAutoCompleteTextView autoCompleteTextView = findViewById(R.id.inputTV);
         MaterialButton button = findViewById(R.id.btn);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Objects.requireNonNull(autoCompleteTextView.getText()).toString().isEmpty()) {
-                    textInputLayout.setError("Select an option");
-                } else {
-                    Toast.makeText(ExploreActivity.this, autoCompleteTextView.getText().toString(), Toast.LENGTH_SHORT).show();
-                }
+        button.setOnClickListener(view -> {
+            if (Objects.requireNonNull(autoCompleteTextView.getText()).toString().isEmpty()) {
+                textInputLayout.setError("Select an option");
+            } else {
+                Toast.makeText(ExploreActivity.this, autoCompleteTextView.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

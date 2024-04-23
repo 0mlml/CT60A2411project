@@ -19,9 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Thread(() -> {
-            CityCodesDataFetcher.init();
-        }).start();
+        new Thread(CityCodesDataFetcher::init).start();
 
         if (getIntent().getBooleanExtra("showCompareFailDialog", false)) {
             new AlertDialog.Builder(this).setTitle("No comparison entries found").setMessage("Please continue to the search to find areas to compare.").setPositiveButton("Continue", (dialog, which) -> {

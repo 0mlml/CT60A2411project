@@ -6,20 +6,18 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import dev.mlml.ct60a2411project.R;
-import dev.mlml.ct60a2411project.data.impl.CityData;
 import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
-import dev.mlml.ct60a2411project.data.impl.SingleCityData;
+import dev.mlml.ct60a2411project.data.impl.CityData;
 import dev.mlml.ct60a2411project.ui.MainActivity;
 
 public class CompareActivity extends AppCompatActivity {
     private static String generateInfoText(String area) {
         StringBuilder sb = new StringBuilder();
         try {
-            SingleCityData cityData = CityDataFetcher.fetchAreas(area).get().getCities().get(area);
+            CityData cityData = CityDataFetcher.fetchArea(area).get();
             sb.append("Population: ").append(cityData.getPopulation().value()).append("\n");
             sb.append("Births: ").append(cityData.getLiveBirths().value()).append("\n");
             sb.append("Deaths: ").append(cityData.getDeaths().value()).append("\n");
@@ -29,7 +27,7 @@ public class CompareActivity extends AppCompatActivity {
             sb.append("Divorces: ").append(cityData.getDivorces().value()).append("\n");
             sb.append("Population change: ").append(cityData.getTotalChange().value()).append("\n");
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("CompareActivity", "Error fetching data.", e);
             sb.append("Error fetching data.");
         }
 
@@ -49,16 +47,7 @@ public class CompareActivity extends AppCompatActivity {
         }
         Log.d("CompareActivity", "Comparing " + pair[0] + " and " + pair[1]);
 
-        CityData cd;
-        try {
-            cd = CityDataFetcher.fetchAreas(pair[0].area(), pair[1].area()).get();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new AlertDialog.Builder(this).setTitle("Error fetching data").setMessage("An error occurred while fetching data. Please try again.").setPositiveButton("OK", (dialog, which) -> {
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-            }).setIcon(android.R.drawable.ic_dialog_alert).show();
-        }
+        setContentView(R.layout.activity_compare);
 
         ((ImageView) findViewById(R.id.leftAreaCoatOfArms)).setImageResource(pair[0].imageResId());
         ((ImageView) findViewById(R.id.rightAreaCoatOfArms)).setImageResource(pair[1].imageResId());
@@ -69,6 +58,5 @@ public class CompareActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.leftAreaTextBox)).setText(generateInfoText(pair[0].area()));
         ((TextView) findViewById(R.id.rightAreaTextBox)).setText(generateInfoText(pair[1].area()));
 
-        setContentView(R.layout.activity_compare);
     }
 }

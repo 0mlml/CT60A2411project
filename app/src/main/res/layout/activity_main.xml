@@ -20,7 +20,7 @@
             android:layout_height="118dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="40dp"
-            android:text="Shit APP"
+            android:text="kljasdjkl"
             android:textColor="@color/lavender"
             android:textSize="34sp"
             app:layout_constraintEnd_toStartOf="@+id/AppImage"

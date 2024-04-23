@@ -12,14 +12,10 @@ import lombok.Getter;
 
 public class CityDataFetcher extends DataFetcher {
     @Getter
-    private final static CityData data;
+    private final static HashMap<String, CityData> cache = new HashMap<>();
 
     private final static String endpoint = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px";
     private final static String requestBody = "{\"query\":[{\"code\":\"Vuosi\",\"selection\":{\"filter\":\"item\",\"values\":[\"2022\"]}},{\"code\":\"Alue\",\"selection\":{\"filter\":\"item\",\"values\":[%s]}},{\"code\":\"Tiedot\",\"selection\":{\"filter\":\"item\",\"values\":[\"vm01\",\"vm11\",\"vm41\",\"vm42\",\"vm2126\",\"vm3136\",\"kokmuutos\",\"vaesto\"]}}],\"response\":{\"format\":\"json\"}}";
-
-    static {
-        data = new CityData(new HashMap<>());
-    }
 
     private static String formatRequestBody(String... areas) {
         StringBuilder areaString = new StringBuilder();
@@ -29,14 +25,28 @@ public class CityDataFetcher extends DataFetcher {
         return String.format(requestBody, areaString);
     }
 
-    public static Future<CityData> fetchAreas(String... areas) {
+    public static Future<CityData> fetchArea(String area) {
         FutureTask<CityData> futureTask = new FutureTask<>(() -> {
-            Log.d("CityDataFetcher", String.format("Fetching data for %s.", String.join(", ", areas)));
+            Log.d("CityDataFetcher", String.format("Fetching data for %s.", area));
+            if (cache.containsKey(area)) {
+                Log.d("CityDataFetcher", String.format("Data for %s already in cache.", area));
+                return cache.get(area);
+            }
+            fetchAreas(area).get();
+            return cache.get(area);
+        });
+        new Thread(futureTask).start();
+        return futureTask;
+    }
+
+    public static Future<HashMap<String, CityData>> fetchAreas(String... areas) {
+        FutureTask<HashMap<String, CityData>> futureTask = new FutureTask<>(() -> {
+            Log.d("CityDataFetcher", String.format("Fetching data for %s. Using bulk fetch, so there is no cache check.", String.join(", ", areas)));
             URL url;
             try {
                 url = new URL(endpoint);
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("CityDataFetcher", "Failed to create URL.");
                 return null;
             }
 
@@ -45,12 +55,12 @@ public class CityDataFetcher extends DataFetcher {
             try {
                 response = post(url, requestBody).get();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("CityDataFetcher", "Failed to fetch data.");
                 return null;
             }
 
-            data.getCities().putAll(SingleCityData.parseData(response));
-            return data;
+            cache.putAll(CityData.parseData(response));
+            return cache;
         });
         new Thread(futureTask).start();
         return futureTask;
