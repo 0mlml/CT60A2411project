@@ -1,85 +1,96 @@
 package dev.mlml.ct60a2411project.ui.minigame.impl;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
+import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Stream;
 
+import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
 import dev.mlml.ct60a2411project.data.impl.CityData;
 import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
 import dev.mlml.ct60a2411project.data.impl.WeatherData;
 import dev.mlml.ct60a2411project.data.impl.WeatherDataFetcher;
+import dev.mlml.ct60a2411project.ui.MainActivity;
+import dev.mlml.ct60a2411project.ui.compare.Comparator;
 import lombok.SneakyThrows;
 
 public class QuizActivity extends AppCompatActivity {
-    private record Question(
-            String question,
-            String correctAnswer,
-            String... wrongAnswers) {
-    }
-
-    private static List<Question> questions = new ArrayList<>();
-
-    private static int wiggle(int value, int wiggle) {
-        return value + (int) (Math.random() * wiggle * 2) - wiggle;
-    }
-
-    private static String wiggleP(int value, int wiggle) {
-        int wiggled = wiggle(value, wiggle);
-        while (wiggled < 0) {
-            wiggled = wiggle(value, wiggle);
-        }
-        return String.valueOf(wiggled);
-    }
-
-    private static String time(long time) {
-        return String.format(Locale.getDefault(), "%02d:%02d", time / 3600, (time % 3600) / 60);
-    }
-
     @SneakyThrows
-    private static List<Question> generateQuiz(String area) {
-        String name = CityCodesDataFetcher.getRegions().get().get(area);
-        CityData cityData = CityDataFetcher.fetchArea(area).get();
-        WeatherData weatherData = WeatherDataFetcher.getWeatherData(name).get();
-        int pop = cityData.getPopulation().value();
-        questions.add(new Question("What is the population of " + name + "?", String.valueOf(pop), wiggleP(pop, 1000), wiggleP(pop, 10000), wiggleP(pop, 100000)));
-        int births = cityData.getLiveBirths().value();
-        questions.add(new Question("How many live births were there in " + name + "?", String.valueOf(births), wiggleP(births, 100), wiggleP(births, 1000), wiggleP(births, 10000)));
-        int deaths = cityData.getDeaths().value();
-        questions.add(new Question("How many deaths were there in " + name + "?", String.valueOf(deaths), wiggleP(deaths, 100), wiggleP(deaths, 1000), wiggleP(deaths, 10000)));
-        int imm = cityData.getImmigration().value();
-        questions.add(new Question("How many people immigrated to " + name + "?", String.valueOf(imm), wiggleP(imm, 100), wiggleP(imm, 1000), wiggleP(imm, 10000)));
-        int emm = cityData.getEmigration().value();
-        questions.add(new Question("How many people emigrated from " + name + "?", String.valueOf(emm), wiggleP(emm, 100), wiggleP(emm, 1000), wiggleP(emm, 10000)));
-        int mar = cityData.getMarriages().value();
-        questions.add(new Question("How many marriages were there in " + name + "?", String.valueOf(mar), wiggleP(mar, 100), wiggleP(mar, 1000), wiggleP(mar, 10000)));
-        int div = cityData.getDivorces().value();
-        questions.add(new Question("How many divorces were there in " + name + "?", String.valueOf(div), wiggleP(div, 100), wiggleP(div, 1000), wiggleP(div, 10000)));
-        int popCh = cityData.getTotalChange().value();
-        questions.add(new Question("What was the total population change in " + name + "?", String.valueOf(popCh), wiggleP(popCh, 100), wiggleP(popCh, 1000), wiggleP(popCh, 10000)));
-        int temp = (int) weatherData.getTemperature();
-        questions.add(new Question("What is the temperature in " + name + "?", String.valueOf(temp), wiggleP(temp, 1), wiggleP(temp, 5), wiggleP(temp, 10)));
-        int feels = (int) weatherData.getFeelsLike();
-        questions.add(new Question("What does it feel like in " + name + "?", String.valueOf(feels), wiggleP(feels, 1), wiggleP(feels, 5), wiggleP(feels, 10)));
-        int hum = (int) weatherData.getHumidity();
-        questions.add(new Question("What is the humidity in " + name + "?", String.valueOf(hum), wiggleP(hum, 1), wiggleP(hum, 5), wiggleP(hum, 10)));
-        int wind = (int) weatherData.getWindSpeed();
-        questions.add(new Question("What is the wind speed in " + name + "?", String.valueOf(wind), wiggleP(wind, 1), wiggleP(wind, 5), wiggleP(wind, 10)));
-        long sunrise = weatherData.getSunrise();
-        questions.add(new Question("When does the sun rise in " + name + "?", time(sunrise), time(sunrise - 3600), time(sunrise + 3600), time(sunrise + 7200)));
-        long sunset = weatherData.getSunset();
-        questions.add(new Question("When does the sun set in " + name + "?", time(sunset), time(sunset - 3600), time(sunset + 3600), time(sunset + 7200)));
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        List<Question> randomizedQuestions = new ArrayList<>(questions);
-        for (int i = 0; i < randomizedQuestions.size(); i++) {
-            int randomIndex = (int) (Math.random() * randomizedQuestions.size());
-            Question tempQuestion = randomizedQuestions.get(i);
-            randomizedQuestions.set(i, randomizedQuestions.get(randomIndex));
-            randomizedQuestions.set(randomIndex, tempQuestion);
+        String area = getIntent().getStringExtra("area");
+        if (area == null) {
+            Set<String> areas = CityCodesDataFetcher.getRegions().get().keySet();
+            area = areas.toArray(new String[0])[(int) (Math.random() * areas.size())];
+            Log.d("QuizActivity", "No area provided, using " + area + " as start.");
         }
 
-        return randomizedQuestions.subList(0, 10);
+        Quiz.RunningQuiz quiz = Quiz.getQuiz(area);
+
+        Log.d("QuizActivity", "Quiz progress: " + quiz.getProgress());
+
+        setContentView(R.layout.activity_quiz);
+
+        String name = CityCodesDataFetcher.getRegions().get().get(area);
+        String cityNameNormalized = Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase();
+        int resId = getResources().getIdentifier(cityNameNormalized, "drawable", getPackageName());
+        Log.d("QuizActivity", "Got city name: " + name + ", resId: " + resId);
+
+        ((ImageView) findViewById(R.id.quizCityCoatOfArms)).setImageResource(resId);
+        ((TextView) findViewById(R.id.quizCityNameTextView)).setText(name);
+        ((TextView) findViewById(R.id.quizProgressTextView)).setText(quiz.getProgress());
+        ((TextView) findViewById(R.id.quizScoreTextView)).setText(quiz.getScore());
+
+        Log.d("QuizActivity", "Set text views.");
+
+        Quiz.Question question = quiz.getCurrentQuestion();
+        ((TextView) findViewById(R.id.quizQuestionTextView)).setText(question.question());
+        RadioGroup radioGroup = findViewById(R.id.quizRadioGroup);
+        radioGroup.removeAllViews();
+        ArrayList<String> answers = new ArrayList<>(Stream.concat(Stream.of(question.correctAnswer()), Stream.of(question.wrongAnswers())).toList());
+        Collections.shuffle(answers);
+        for (String answer : answers) {
+            RadioButton radioButton = new RadioButton(this);
+            radioButton.setText(answer);
+            radioGroup.addView(radioButton);
+        }
+
+        Log.d("QuizActivity", "Question: " + question.question());
+        Log.d("QuizActivity", "Correct answer: " + question.correctAnswer());
+
+        String finalArea = area;
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            boolean correct = radioButton.getText().equals(question.correctAnswer());
+            quiz.progress(correct);
+            if (quiz.getCurrentQuestion() == null) {
+                Intent intent = new Intent(this, QuizResultActivity.class);
+                intent.putExtra("area", finalArea);
+                intent.putExtra("score", quiz.getScore());
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(this, QuizActivity.class);
+                intent.putExtra("area", finalArea);
+                startActivity(intent);
+            }
+        });
     }
 }
