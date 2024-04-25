@@ -7,7 +7,7 @@
     tools:context=".ui.minigame.impl.FlashCardsActivity">
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/flashcardsImageButton1"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="2dp"
@@ -15,15 +15,15 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:contentDescription="1"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton6"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newGame"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsNewGame"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/flashcardsImageButton2"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -31,15 +31,15 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:contentDescription="2"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton7"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton1"
-        app:layout_constraintTop_toBottomOf="@+id/newGame"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton1"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsNewGame"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/flashcardsImageButton3"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -47,15 +47,15 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:contentDescription="3"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton8"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton8"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton4"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/newGame"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsNewGame"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/flashcardsImageButton5"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -63,31 +63,31 @@
         android:layout_marginEnd="2dp"
         android:background="@color/purple_500"
         android:contentDescription="5"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton10"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/newGame"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton4"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsNewGame"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/flashcardsImageButton4"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton9"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton9"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton5"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/newGame"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsNewGame"
         tools:contentDescription="4"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/flashcardsImageButton6"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="2dp"
@@ -95,15 +95,15 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:contentDescription="6"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton11"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton11"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton7"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton1"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton1"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/flashcardsImageButton7"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -111,15 +111,15 @@
         android:layout_marginEnd="1dp"
         android:background="@color/purple_500"
         android:contentDescription="7"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton12"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton12"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton8"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton6"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton2"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/flashcardsImageButton8"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -129,15 +129,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="8"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton13"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton13"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton9"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton7"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton3"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/flashcardsImageButton9"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -147,15 +147,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="9"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton14"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton10"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton14"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton10"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton8"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton4"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/flashcardsImageButton10"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -165,15 +165,15 @@
         android:layout_marginRight="2dp"
         android:background="@color/purple_500"
         android:contentDescription="10"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton15"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton9"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton9"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton5"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/flashcardsImageButton11"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="2dp"
@@ -183,15 +183,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="11"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton16"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton12"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton16"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton12"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton6"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/flashcardsImageButton12"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -201,15 +201,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="12"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton17"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton13"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton17"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton13"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton11"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton11"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton7"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton13"
+        android:id="@+id/flashcardsImageButton13"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -219,15 +219,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="13"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton18"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton14"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton18"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton14"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton12"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton12"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton8"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton14"
+        android:id="@+id/flashcardsImageButton14"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -237,15 +237,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="14"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton19"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton15"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton19"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton15"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton13"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton9"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton13"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton9"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton15"
+        android:id="@+id/flashcardsImageButton15"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -255,15 +255,15 @@
         android:layout_marginRight="2dp"
         android:background="@color/purple_500"
         android:contentDescription="15"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton20"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton14"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton10"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton14"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton10"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton16"
+        android:id="@+id/flashcardsImageButton16"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="2dp"
@@ -273,15 +273,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="16"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton21"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton17"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton21"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton17"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton11"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton11"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton17"
+        android:id="@+id/flashcardsImageButton17"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -291,15 +291,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="17"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton22"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton18"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton22"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton18"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton16"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton12"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton16"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton12"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton18"
+        android:id="@+id/flashcardsImageButton18"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -309,15 +309,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="18"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton23"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton19"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton23"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton19"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton17"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton13"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton17"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton13"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton19"
+        android:id="@+id/flashcardsImageButton19"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -327,15 +327,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="19"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton24"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton20"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton24"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton20"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton18"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton14"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton18"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton14"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton20"
+        android:id="@+id/flashcardsImageButton20"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -345,15 +345,15 @@
         android:layout_marginRight="2dp"
         android:background="@color/purple_500"
         android:contentDescription="20"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton25"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton19"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton15"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton19"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton15"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton21"
+        android:id="@+id/flashcardsImageButton21"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="2dp"
@@ -363,15 +363,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="21"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton26"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton22"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton26"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton22"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton16"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton16"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton22"
+        android:id="@+id/flashcardsImageButton22"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -381,15 +381,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="22"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton27"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton23"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton27"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton23"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton21"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton17"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton21"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton17"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton23"
+        android:id="@+id/flashcardsImageButton23"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -399,15 +399,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="23"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton28"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton24"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton28"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton24"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton22"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton18"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton22"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton18"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton24"
+        android:id="@+id/flashcardsImageButton24"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -417,15 +417,15 @@
         android:layout_marginRight="1dp"
         android:background="@color/purple_500"
         android:contentDescription="24"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton29"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton25"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton29"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton25"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton23"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton19"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton23"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton19"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton25"
+        android:id="@+id/flashcardsImageButton25"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -435,15 +435,15 @@
         android:layout_marginRight="2dp"
         android:background="@color/purple_500"
         android:contentDescription="25"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton30"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardsImageButton30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton24"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton20"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton24"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton20"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton26"
+        android:id="@+id/flashcardsImageButton26"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="2dp"
@@ -454,14 +454,14 @@
         android:background="@color/purple_500"
         android:contentDescription="26"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton27"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton27"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton21"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton21"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton27"
+        android:id="@+id/flashcardsImageButton27"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -472,14 +472,14 @@
         android:background="@color/purple_500"
         android:contentDescription="27"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton28"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton28"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton26"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton22"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton26"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton22"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton28"
+        android:id="@+id/flashcardsImageButton28"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -490,14 +490,14 @@
         android:background="@color/purple_500"
         android:contentDescription="28"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton29"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton29"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton27"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton23"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton27"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton23"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton29"
+        android:id="@+id/flashcardsImageButton29"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -508,14 +508,14 @@
         android:background="@color/purple_500"
         android:contentDescription="29"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton30"
+        app:layout_constraintEnd_toStartOf="@+id/flashcardsImageButton30"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton28"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton24"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton28"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton24"
         tools:src="@tools:sample/avatars" />
 
     <ImageButton
-        android:id="@+id/imageButton30"
+        android:id="@+id/flashcardsImageButton30"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginStart="1dp"
@@ -528,12 +528,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton29"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton25"
+        app:layout_constraintStart_toEndOf="@+id/flashcardsImageButton29"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardsImageButton25"
         tools:src="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/newGame"
+        android:id="@+id/flashcardsNewGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

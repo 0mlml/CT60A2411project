@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/higherLowerScoreText" />
 
     <TextView
-        android:id="@+id/higherLowerQuestion"
+        android:id="@+id/guessTheCityQuestionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

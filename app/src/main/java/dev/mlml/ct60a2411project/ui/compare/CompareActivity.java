@@ -49,14 +49,14 @@ public class CompareActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_compare);
 
-        ((ImageView) findViewById(R.id.leftAreaCoatOfArms)).setImageResource(pair[0].imageResId());
-        ((ImageView) findViewById(R.id.rightAreaCoatOfArms)).setImageResource(pair[1].imageResId());
+        ((ImageView) findViewById(R.id.comparisonLeftAreaCoatOfArms)).setImageResource(pair[0].imageResId());
+        ((ImageView) findViewById(R.id.comparisonRightAreaCoatOfArms)).setImageResource(pair[1].imageResId());
 
-        ((TextView) findViewById(R.id.leftAreaTitle)).setText(pair[0].name());
-        ((TextView) findViewById(R.id.rightAreaTitle)).setText(pair[1].name());
+        ((TextView) findViewById(R.id.comparisonLeftAreaTitle)).setText(pair[0].name());
+        ((TextView) findViewById(R.id.comparisonRightAreaTitle)).setText(pair[1].name());
 
-        ((TextView) findViewById(R.id.leftAreaTextBox)).setText(generateInfoText(pair[0].area()));
-        ((TextView) findViewById(R.id.rightAreaTextBox)).setText(generateInfoText(pair[1].area()));
+        ((TextView) findViewById(R.id.comparisonLeftAreaTextBox)).setText(generateInfoText(pair[0].area()));
+        ((TextView) findViewById(R.id.comparisonRightAreaTextBox)).setText(generateInfoText(pair[1].area()));
 
     }
 }

@@ -6,6 +6,8 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Locale;
+
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityData;
 import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
@@ -45,8 +47,8 @@ public class CityDetailsActivity extends AppCompatActivity {
                 sb.append("Wind direction: ").append(weatherData.getWindDirection()).append("\n");
                 sb.append("Ground level: ").append(weatherData.getGroundLevel()).append("\n");
                 sb.append("Pressure: ").append(weatherData.getPressure()).append("\n");
-                sb.append("Sunrise: ").append(weatherData.getSunrise()).append("\n");
-                sb.append("Sunset: ").append(weatherData.getSunset()).append("\n");
+                sb.append("Sunrise: ").append(String.format(Locale.ENGLISH, "%tR", weatherData.getSunrise() * 1000)).append("\n");
+                sb.append("Sunset: ").append(String.format(Locale.ENGLISH, "%tR", weatherData.getSunset() * 1000)).append("\n");
             } catch (Exception e) {
                 Log.e("CityDetailsActivity", "Error fetching data.", e);
                 sb.append("\nError fetching data.");

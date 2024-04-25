@@ -85,7 +85,7 @@ public class HigherLowerActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.higherLowerCoatOfArmsLeft)).setImageResource(getResources().getIdentifier(Normalizer.normalize(name1, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
         ((ImageView) findViewById(R.id.higherLowerCoatOfArmsRight)).setImageResource(getResources().getIdentifier(Normalizer.normalize(name2, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
 
-        ((TextView) findViewById(R.id.higherLowerQuestion)).setText(hl.getQuestion());
+        ((TextView) findViewById(R.id.guessTheCityQuestionText)).setText(hl.getQuestion());
         higherLower = hl;
     }
 
