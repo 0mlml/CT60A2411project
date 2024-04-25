@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
+import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
 import lombok.SneakyThrows;
 
 public class HigherLowerActivity extends AppCompatActivity {
@@ -82,8 +82,8 @@ public class HigherLowerActivity extends AppCompatActivity {
         String name1 = CityCodesDataFetcher.getRegions().get().get(hl.getArea1());
         String name2 = CityCodesDataFetcher.getRegions().get().get(hl.getArea2());
 
-        ((ImageView) findViewById(R.id.higherLowerCoatOfArmsLeft)).setImageResource(getResources().getIdentifier(Normalizer.normalize(name1, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
-        ((ImageView) findViewById(R.id.higherLowerCoatOfArmsRight)).setImageResource(getResources().getIdentifier(Normalizer.normalize(name2, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
+        ((ImageView) findViewById(R.id.higherLowerCoatOfArmsLeft)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(name1).get());
+        ((ImageView) findViewById(R.id.higherLowerCoatOfArmsRight)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(name2).get());
 
         ((TextView) findViewById(R.id.guessTheCityQuestionText)).setText(hl.getQuestion());
         higherLower = hl;

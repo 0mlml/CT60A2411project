@@ -3,9 +3,9 @@ package dev.mlml.ct60a2411project.details;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,20 +15,17 @@ import java.util.Locale;
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityData;
 import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
+import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
 import dev.mlml.ct60a2411project.data.impl.WeatherData;
 import dev.mlml.ct60a2411project.data.impl.WeatherDataFetcher;
 import dev.mlml.ct60a2411project.databinding.ActivityDetailedCityBinding;
 import dev.mlml.ct60a2411project.ui.compare.Comparator;
+import lombok.SneakyThrows;
 
 public class CityDetailsActivity extends AppCompatActivity {
     ActivityDetailedCityBinding binding;
 
-    private void addTextToList(RecyclerView rv, String text) {
-        TextView textView = new TextView(this);
-        textView.setText(text);
-        rv.addView(textView);
-    }
-
+    @SneakyThrows
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +36,8 @@ public class CityDetailsActivity extends AppCompatActivity {
             String area = intent.getStringExtra("area");
 
             RecyclerView rv = findViewById(R.id.detailedCityDetailList);
+            rv.setLayoutManager(new LinearLayoutManager(this));
+
             List<String> details = new ArrayList<>();
             try {
                 CityData cityData = CityDataFetcher.fetchArea(area).get();
@@ -68,10 +67,10 @@ public class CityDetailsActivity extends AppCompatActivity {
             rv.setAdapter(adapter);
 
             binding.detailedCityName.setText(intent.getStringExtra("name"));
-            binding.detailedCityImage.setImageResource(intent.getIntExtra("imageResId", R.drawable.finland));
+            binding.detailedCityImage.setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(intent.getStringExtra("name")).get());
 
             binding.detailedCityComparisonButton.setOnClickListener(view -> {
-                Comparator.addToCompare(area, intent.getStringExtra("name"), intent.getIntExtra("imageResId", R.drawable.finland));
+                Comparator.addToCompare(area, intent.getStringExtra("name"));
                 Log.d("CityDetailsActivity", "Added " + area + " to comparison");
             });
         }

@@ -36,6 +36,7 @@ public class CityCodesDataFetcher extends DataFetcher {
 
         Log.d("CityCodesDataFetcher", "Fetching data.");
         data = fetchData();
+        // Remove "WHOLE COUNTRY"
 
         if (data == null) {
             Log.e("CityCodesDataFetcher", "Failed to fetch data.");

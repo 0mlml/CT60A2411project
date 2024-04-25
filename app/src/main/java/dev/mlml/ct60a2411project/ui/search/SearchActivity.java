@@ -6,11 +6,11 @@ import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.List;
 
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
+import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
 import dev.mlml.ct60a2411project.databinding.ActivitySearchBinding;
 import dev.mlml.ct60a2411project.details.CityDetailsActivity;
 
@@ -33,24 +33,25 @@ public class SearchActivity extends AppCompatActivity {
         }
         setupListView(regions.values().stream().toList());
         setupSearchView();
+
+        new Thread(() -> CoatOfArmsFetcher.populateCache(regions.values().stream().toList())).start();
     }
 
     private void setupListView(List<String> cities) {
         searchableListAdapter = new SearchableListAdapter(this, cities);
-        binding.listview.setAdapter(searchableListAdapter);
-        binding.listview.setClickable(true);
-        binding.listview.setOnItemClickListener((parent, view, position, id) -> {
+        binding.searchResultListView.setAdapter(searchableListAdapter);
+        binding.searchResultListView.setClickable(true);
+        binding.searchResultListView.setOnItemClickListener((parent, view, position, id) -> {
             String cityName = searchableListAdapter.getItem(position);
             Intent intent = new Intent(SearchActivity.this, CityDetailsActivity.class);
             intent.putExtra("name", cityName);
-            intent.putExtra("imageResId", getResources().getIdentifier(Normalizer.normalize(cityName, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase(), "drawable", getPackageName()));
             intent.putExtra("area", CityCodesDataFetcher.getData().getAreaByName(cityName));
             startActivity(intent);
         });
     }
 
     private void setupSearchView() {
-        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        binding.searchSearchBoxView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;

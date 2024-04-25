@@ -26,6 +26,7 @@ public class CityData {
     private IntegerDataEntry divorces; // In data: vm3136
     private IntegerDataEntry totalChange; // In data: kokmuutos
     private IntegerDataEntry population; // In data: vaesto
+
     public CityData() {
     }
 

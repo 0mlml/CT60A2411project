@@ -44,6 +44,12 @@ public class CityCodesData {
                         informations = currentDataEntry;
             }
         }
+
+        int wholeCountryIndex = regions.valueTexts.indexOf("WHOLE COUNTRY");
+        if (wholeCountryIndex != -1) {
+            regions.values.remove(wholeCountryIndex);
+            regions.valueTexts.remove(wholeCountryIndex);
+        }
     }
 
     /**

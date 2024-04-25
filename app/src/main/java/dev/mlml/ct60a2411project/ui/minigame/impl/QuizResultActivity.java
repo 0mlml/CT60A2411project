@@ -7,10 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.Normalizer;
-
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
+import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
 import dev.mlml.ct60a2411project.ui.MainActivity;
 import lombok.SneakyThrows;
 
@@ -24,9 +23,8 @@ public class QuizResultActivity extends AppCompatActivity {
 
         String area = getIntent().getStringExtra("area");
         String name = CityCodesDataFetcher.getRegions().get().get(area);
-        String cityNameNormalized = Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase();
 
-        ((ImageView) findViewById(R.id.quizResCityCoatOfArms)).setImageResource(getResources().getIdentifier(cityNameNormalized, "drawable", getPackageName()));
+        ((ImageView) findViewById(R.id.quizResCityCoatOfArms)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(name).get());
         ((TextView) findViewById(R.id.quizResCityNameTextView)).setText(name);
         ((TextView) findViewById(R.id.quizResScoreTextView)).setText(getIntent().getStringExtra("score"));
 

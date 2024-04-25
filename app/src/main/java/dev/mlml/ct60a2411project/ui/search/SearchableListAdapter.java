@@ -13,12 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import dev.mlml.ct60a2411project.R;
+import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
+import lombok.SneakyThrows;
 
 public class SearchableListAdapter extends ArrayAdapter<String> implements Filterable {
     private final List<String> cityList;
@@ -30,6 +31,7 @@ public class SearchableListAdapter extends ArrayAdapter<String> implements Filte
         this.displayed = cityList;
     }
 
+    @SneakyThrows
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -37,9 +39,7 @@ public class SearchableListAdapter extends ArrayAdapter<String> implements Filte
         if (Objects.isNull(convertView)) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_city, parent, false);
         }
-        String cityNameNormalized = Normalizer.normalize(city, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toLowerCase();
-        int resId = getContext().getResources().getIdentifier(cityNameNormalized, "drawable", getContext().getPackageName());
-        ((ImageView) convertView.findViewById(R.id.listImage)).setImageResource(resId);
+        ((ImageView) convertView.findViewById(R.id.listImage)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(city).get());
         ((TextView) convertView.findViewById(R.id.listName)).setText(city);
         return convertView;
     }

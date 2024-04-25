@@ -30,7 +30,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailedCityDetailList"
         android:layout_width="match_parent"
-        android:layout_height="518dp" />
+        android:layout_height="518dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
 
     <Button
         android:id="@+id/detailedCityComparisonButton"

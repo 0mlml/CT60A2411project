@@ -22,20 +22,19 @@ public class Comparator {
         return result;
     }
 
-    public static void addToCompare(String area, String name, int imageResId) {
+    public static void addToCompare(String area, String name) {
         if (current[0] == null) {
-            current[0] = new ComparisonCity(area, name, imageResId);
+            current[0] = new ComparisonCity(area, name);
         } else if (current[1] == null) {
-            current[1] = new ComparisonCity(area, name, imageResId);
+            current[1] = new ComparisonCity(area, name);
         } else {
             current[0] = current[1];
-            current[1] = new ComparisonCity(area, name, imageResId);
+            current[1] = new ComparisonCity(area, name);
         }
     }
 
     public record ComparisonCity(
             String area,
-            String name,
-            int imageResId) {
+            String name) {
     }
 }

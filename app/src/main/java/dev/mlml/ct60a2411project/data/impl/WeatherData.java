@@ -33,6 +33,7 @@ public class WeatherData {
     private final String country;
     private final long sunrise;
     private final long sunset;
+
     /**
      * This constructor initializes the weather data from a JSON string and an array of coordinates.
      * It uses Gson to parse the JSON into a WeatherInfo object.

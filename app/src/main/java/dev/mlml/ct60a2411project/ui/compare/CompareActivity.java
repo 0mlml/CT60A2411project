@@ -11,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.data.impl.CityData;
 import dev.mlml.ct60a2411project.data.impl.CityDataFetcher;
+import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
 import dev.mlml.ct60a2411project.ui.MainActivity;
+import lombok.SneakyThrows;
 
 public class CompareActivity extends AppCompatActivity {
     private static String generateInfoText(String area) {
@@ -34,6 +36,7 @@ public class CompareActivity extends AppCompatActivity {
         return sb.toString();
     }
 
+    @SneakyThrows
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +52,8 @@ public class CompareActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_compare);
 
-        ((ImageView) findViewById(R.id.comparisonLeftAreaCoatOfArms)).setImageResource(pair[0].imageResId());
-        ((ImageView) findViewById(R.id.comparisonRightAreaCoatOfArms)).setImageResource(pair[1].imageResId());
+        ((ImageView) findViewById(R.id.comparisonLeftAreaCoatOfArms)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(pair[0].name()).get());
+        ((ImageView) findViewById(R.id.comparisonRightAreaCoatOfArms)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(pair[1].name()).get());
 
         ((TextView) findViewById(R.id.comparisonLeftAreaTitle)).setText(pair[0].name());
         ((TextView) findViewById(R.id.comparisonRightAreaTitle)).setText(pair[1].name());
