@@ -12,7 +12,7 @@ import java.util.List;
 
 import dev.mlml.ct60a2411project.data.impl.CityCodesDataFetcher;
 import dev.mlml.ct60a2411project.databinding.ActivitySearchBinding;
-import dev.mlml.ct60a2411project.ui.CityDetailsActivity;
+import dev.mlml.ct60a2411project.details.CityDetailsActivity;
 
 public class SearchActivity extends AppCompatActivity {
     ActivitySearchBinding binding;
