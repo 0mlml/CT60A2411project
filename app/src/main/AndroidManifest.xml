@@ -38,6 +38,7 @@
         <activity android:name=".ui.minigame.impl.GuessTheCityActivity" />
 
         <activity android:name=".ui.minigame.impl.FlashCardsActivity" />
+        <activity android:name=".ui.minigame.impl.FlashCardsResultActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
