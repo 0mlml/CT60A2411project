@@ -35,8 +35,6 @@
 
         <activity android:name=".ui.minigame.impl.HigherLowerActivity" />
 
-        <activity android:name=".ui.minigame.impl.GuessTheCityActivity" />
-
         <activity android:name=".ui.minigame.impl.FlashCardsActivity" />
         <activity android:name=".ui.minigame.impl.FlashCardsResultActivity" />
     </application>

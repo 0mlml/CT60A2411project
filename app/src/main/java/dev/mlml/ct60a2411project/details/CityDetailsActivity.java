@@ -63,7 +63,7 @@ public class CityDetailsActivity extends AppCompatActivity {
                 Log.e("CityDetailsActivity", "Error fetching data.", e);
                 details.add("\nError fetching data.");
             }
-            DetailAdapter adapter = new DetailAdapter(details);
+            CityDetailAdapter adapter = new CityDetailAdapter(details);
             rv.setAdapter(adapter);
 
             binding.detailedCityName.setText(intent.getStringExtra("name"));

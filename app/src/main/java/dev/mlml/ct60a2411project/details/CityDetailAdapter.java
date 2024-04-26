@@ -13,10 +13,10 @@ import java.util.List;
 
 import dev.mlml.ct60a2411project.R;
 
-public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailViewHolder> {
+public class CityDetailAdapter extends RecyclerView.Adapter<CityDetailAdapter.DetailViewHolder> {
     private final List<String> details;
 
-    public DetailAdapter(List<String> details) {
+    public CityDetailAdapter(List<String> details) {
         this.details = details;
         Log.d("DetailAdapter", "Details: " + details.toString());
     }

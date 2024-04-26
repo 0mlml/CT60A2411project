@@ -17,9 +17,9 @@ import dev.mlml.ct60a2411project.data.impl.CoatOfArmsFetcher;
 import lombok.SneakyThrows;
 
 public class FlashCardsAdapter extends BaseAdapter {
-    private Context context;
+    private final Context context;
+    private final FlashCards flashCards;
     private List<String> municipalities;
-    private FlashCards flashCards;
 
     public FlashCardsAdapter(Context context, List<String> municipalities, FlashCards flashCards) {
         this.context = context;

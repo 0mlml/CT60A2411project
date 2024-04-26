@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
@@ -36,6 +39,19 @@ public class CityDataFetcher extends DataFetcher {
     }
 
     /**
+     * This method populates the cache with city data for a list of areas.
+     * It iterates over the list of areas and fetches the data for each area.
+     * It then adds the data to the cache.
+     *
+     * @param areas The list of areas to fetch data for.
+     */
+    public static void populateCache(List<String> areas) {
+        for (String area : areas) {
+            fetchArea(area);
+        }
+    }
+
+    /**
      * This method fetches data for a specific area.
      * If the data is already in the cache, it returns the cached data.
      * Otherwise, it fetches the data and adds it to the cache.
@@ -46,28 +62,12 @@ public class CityDataFetcher extends DataFetcher {
     public static Future<CityData> fetchArea(String area) {
         FutureTask<CityData> futureTask = new FutureTask<>(() -> {
             Log.d("CityDataFetcher", String.format("Fetching data for %s.", area));
+
             if (cache.containsKey(area)) {
                 Log.d("CityDataFetcher", String.format("Data for %s already in cache.", area));
                 return cache.get(area);
             }
-            fetchAreas(area).get();
-            return cache.get(area);
-        });
-        new Thread(futureTask).start();
-        return futureTask;
-    }
 
-    /**
-     * This method fetches data for multiple areas.
-     * It does not check the cache before fetching the data.
-     * After fetching the data, it adds the data to the cache.
-     *
-     * @param areas The areas to fetch data for.
-     * @return A Future of a map of the fetched CityData, keyed by area.
-     */
-    public static Future<HashMap<String, CityData>> fetchAreas(String... areas) {
-        FutureTask<HashMap<String, CityData>> futureTask = new FutureTask<>(() -> {
-            Log.d("CityDataFetcher", String.format("Fetching data for %s. Using bulk fetch, so there is no cache check.", String.join(", ", areas)));
             URL url;
             try {
                 url = new URL(endpoint);
@@ -76,7 +76,7 @@ public class CityDataFetcher extends DataFetcher {
                 return null;
             }
 
-            String requestBody = formatRequestBody(areas);
+            String requestBody = formatRequestBody(area);
             String response;
             try {
                 response = post(url, requestBody).get();
@@ -85,6 +85,19 @@ public class CityDataFetcher extends DataFetcher {
                 return null;
             }
             cache.putAll(CityData.parseData(response));
+            return cache.get(area);
+        });
+        new Thread(futureTask).start();
+        return futureTask;
+    }
+
+    public static Future<HashMap<String, CityData>> fetchAreas(String... areas) {
+        FutureTask<HashMap<String, CityData>> futureTask = new FutureTask<>(() -> {
+            ExecutorService executor = Executors.newFixedThreadPool(areas.length);
+            for (String area : areas) {
+                Future<CityData> future = executor.submit(() -> fetchArea(area).get());
+            }
+            executor.shutdown();
             return cache;
         });
         new Thread(futureTask).start();

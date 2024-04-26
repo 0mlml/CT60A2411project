@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import dev.mlml.ct60a2411project.R;
 import dev.mlml.ct60a2411project.ui.minigame.impl.FlashCardsActivity;
-import dev.mlml.ct60a2411project.ui.minigame.impl.GuessTheCityActivity;
 import dev.mlml.ct60a2411project.ui.minigame.impl.HigherLowerActivity;
 import dev.mlml.ct60a2411project.ui.minigame.impl.QuizActivity;
 
@@ -24,11 +23,6 @@ public class MinigameSplashActivity extends AppCompatActivity {
 
         findViewById(R.id.flashcardCard).setOnClickListener(view -> {
             Intent intent = new Intent(MinigameSplashActivity.this, FlashCardsActivity.class);
-            startActivity(intent);
-        });
-
-        findViewById(R.id.guessTheCityCard).setOnClickListener(view -> {
-            Intent intent = new Intent(MinigameSplashActivity.this, GuessTheCityActivity.class);
             startActivity(intent);
         });
 

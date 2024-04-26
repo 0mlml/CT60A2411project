@@ -132,43 +132,6 @@
             app:layout_constraintVertical_bias="1.0">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/guessTheCityCard"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="20dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/qtc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/qtcImage"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="29dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginEnd="29dp"
-                        android:text="Quess the city"
-                        android:textColor="@color/lavender"
-                        android:textSize="20sp" />
-
-                    <ImageView
-                        android:id="@+id/qtcImage"
-                        android:layout_width="129dp"
-                        android:layout_height="167dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/qtc" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
                 android:id="@+id/higherLowerCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -204,6 +167,16 @@
                         android:src="@drawable/hol" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

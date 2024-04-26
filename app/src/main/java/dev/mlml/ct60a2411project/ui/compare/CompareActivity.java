@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,9 +49,18 @@ public class CompareActivity extends AppCompatActivity {
             startActivity(intent);
             return;
         }
-        Log.d("CompareActivity", "Comparing " + pair[0] + " and " + pair[1]);
 
         setContentView(R.layout.activity_compare);
+
+        setComparison(pair);
+
+        ListView lv = findViewById(R.id.comparisonHistoryListView);
+        lv.setAdapter(new ComparisonHistoryAdapter(this, Comparator.getHistory(), this));
+    }
+
+    @SneakyThrows
+    protected void setComparison(Comparator.ComparisonCity[] pair) {
+        Log.d("CompareActivity", "Comparing " + pair[0] + " and " + pair[1]);
 
         ((ImageView) findViewById(R.id.comparisonLeftAreaCoatOfArms)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(pair[0].name()).get());
         ((ImageView) findViewById(R.id.comparisonRightAreaCoatOfArms)).setImageBitmap(CoatOfArmsFetcher.fetchCoatOfArms(pair[1].name()).get());
@@ -60,6 +70,5 @@ public class CompareActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.comparisonLeftAreaTextBox)).setText(generateInfoText(pair[0].area()));
         ((TextView) findViewById(R.id.comparisonRightAreaTextBox)).setText(generateInfoText(pair[1].area()));
-
     }
 }

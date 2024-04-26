@@ -1,162 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/exploreText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="Explore new municipalities:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/exploreHottestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Hottest"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostPopulationButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exploreText" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-    <Button
-        android:id="@+id/exploreColdestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Coldest"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/exploreLeastPopulationButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exploreHottestButton" />
+            <Button
+                android:id="@+id/exploreHottestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hottest" />
 
-    <Button
-        android:id="@+id/exploreMostPopulationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Most population"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostImmigrationButton"
-        app:layout_constraintStart_toEndOf="@+id/exploreHottestButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploreText" />
+            <Button
+                android:id="@+id/explorePopulatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Populated" />
 
-    <Button
-        android:id="@+id/exploreLeastPopulationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Least population"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostEmigrationButton"
-        app:layout_constraintStart_toEndOf="@+id/exploreColdestButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploreMostPopulationButton" />
+            <Button
+                android:id="@+id/exploreImmigratedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Immigrated" />
 
-    <Button
-        android:id="@+id/exploreMostImmigrationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Most immigrated"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/exploreMostPopulationButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploreText" />
+        </TableRow>
 
-    <Button
-        android:id="@+id/exploreMostEmigrationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Most emigrated"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/exploreLeastPopulationButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploreMostImmigrationButton" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-    <Button
-        android:id="@+id/exploreNorthestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="10dp"
-        android:text="Northest"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/exploreSouthestButton"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostDeathsButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exploreColdestButton" />
+            <Button
+                android:id="@+id/exploreColdestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coldest" />
 
-    <Button
-        android:id="@+id/exploreMostDeathsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:layout_marginBottom="10dp"
-        android:text="Most deaths"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/exploreMostBirthsButton"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostMarriagesButton"
-        app:layout_constraintStart_toEndOf="@+id/exploreNorthestButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploreLeastPopulationButton" />
+            <Button
+                android:id="@+id/exploreUnpopulatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unpopulated" />
 
-    <Button
-        android:id="@+id/exploreMostMarriagesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:layout_marginBottom="10dp"
-        android:text="Most marriages"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/exploreMostBirthsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/exploreMostDeathsButton"
-        app:layout_constraintTop_toBottomOf="@+id/exploreMostEmigrationButton" />
+            <Button
+                android:id="@+id/exploreEmigratedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emigrated" />
+        </TableRow>
 
-    <Button
-        android:id="@+id/exploreSouthestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Southest"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostBirthsButton"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="331dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-    <Button
-        android:id="@+id/exploreMostBirthsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Most births"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/exploreMostDivorcesButton"
-        app:layout_constraintStart_toEndOf="@+id/exploreSouthestButton"
-        tools:layout_editor_absoluteY="331dp" />
+            <Button
+                android:id="@+id/exploreMarriedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marriages" />
 
-    <Button
-        android:id="@+id/exploreMostDivorcesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Most divorces"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/exploreMostBirthsButton"
-        tools:layout_editor_absoluteY="331dp" />
+            <Button
+                android:id="@+id/exploreNorthestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Northest" />
 
-    <androidx.recyclerview.widget.RecyclerView
+            <Button
+                android:id="@+id/exploreHighestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Highest" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/exploreDivorcedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Divorces" />
+
+            <Button
+                android:id="@+id/exploreSouthestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Southest" />
+
+            <Button
+                android:id="@+id/exploreLowestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lowest" />
+        </TableRow>
+    </TableLayout>
+
+    <ListView
         android:id="@+id/exploreOutputList"
-        android:layout_width="409dp"
-        android:layout_height="350dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="379dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
