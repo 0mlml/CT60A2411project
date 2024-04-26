@@ -1,14 +1,25 @@
 # CT60A2411 Project
 
+## Demo video
+The demo video can be found on [YouTube](https://youtu.be/MzR-kkfowF8).
+
 ## General description of the work
 
-Our app is a Finnish municipalities learning app. It allows users search for municipalities they already know and get statistics and information about them. They can also explore new municipalities according to different atributes such as the highest population and 
-
+Our app is a Finnish municipalities learning app. It allows users to search for municipalities they already know and get statistics and information about them. They can also explore new municipalities according to different atributes such as highest population and highest imigration. There are a few minigames where the user can improve their knowledge on the municipalities and also they can compare two different municipalities with eachother. 
 
 ## Class diagram
 
+![Class diagram](./class%20diagram.png)
+
 ## Division of labour
 
+### Jussi Grönroos
+Responsible for general UI design and implementation, including the main menu, the explore activity, the quiz activity, the flashcards activity, the higher lower activity, and the comparison history activity. Also responsible for the implementation of the `City` class and the `CityDetail` class. Primarily responsible for the writing of the documentation.
+
+### Max Lattunen
+Responsible for the general backend implementation, notably the `CityCodesDataFetcher`, `CityDataFetcher`, `WeatherDataFetcher`, and `CoatOfArmsFetcher` classes. Responsible for the implementation of the classes that handle the games' logic, such as the `Quiz`, `Flashcards`, and `HigherLower` classes. 
+
+#### The git history may not be represenative of the actual division of labour, as we both may have worked a single state, with only one of us committing the changes.
 
 ## Features breakdown
 | Feature | Pts. | Explanation |
@@ -30,5 +41,5 @@ Our app is a Finnish municipalities learning app. It allows users search for mun
 | Game: HigherLower | 4 | `HigherLowerActivity` allows the user to play a Higher or Lower game with various statistics of two municipalities |
 | Feature: Explore | 3 | `ExploreActivity` allows the user to explore municipalities by sorting by different attributes |
 
-### Targeted Points: 30
+### Targeted Points: 10 points for mandatory + 30 for additional features = 40 points
 
