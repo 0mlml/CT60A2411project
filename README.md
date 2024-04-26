@@ -1,46 +1,34 @@
 # CT60A2411 Project
-Documentation must include the following things:
-- Class diagram (you do not need to include Android classes, such as Activities in the class diagram) 
-- Division of labour between team members (who did what) 
-- Features that were implemented (according to this table here, with the points you are aiming for)
-- General description of the work 
-- Installation instructions (in case you need to do something else than just run the app in Android Studio)
 
-
-Features that were implemented:
-Object-oriented code / Mandatory
-
-Code, comments and related documentationare in English / Mandatory
-
-App works in Android / Mandatory
-
-Application includes basic functionality / Mandatory
-
-Documentation / Mandatory
-
-You are fetching data via API / Mandatory
-
-RecyclerView / 3 points
-
-You are displaying images / 2 points
-
-There is more than one data source / 3 points
-
-There are more than two data sources / 2 points
-
-Statistics / 2 points
-
-Comparing municipalities / 3 points
-
-Quiz / 4 points
-
-Fragments / 4 points
-
-Game / x points
-
-
-
+## General description of the work
 
 Our app is a Finnish municipalities learning app. It allows users search for municipalities they already know and get statistics and information about them. They can also explore new municipalities according to different atributes such as the highest population and 
 
+
+## Class diagram
+
+## Division of labour
+
+
+## Features breakdown
+| Feature | Pts. | Explanation |
+|---|---|---|
+| Object-oriented code | Mandatory | - |
+| Code, comments, and related documentation are in English | Mandatory | - |
+| App works in Android | Mandatory | - |
+| Application includes basic functionality | Mandatory | - |
+| Documentation | Mandatory | - |
+| You are fetching data via API | Mandatory | `CityCodesDataFetcher` and `CityDataFetcher` implement data fetching from [stat.fi](https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px) |
+| RecyclerView | 3 | `CityDetailsActivity` + `CityDetailAdapter` implement RecyclerView |
+| You are displaying images | 2 | Throughout the app the correct Coat of Arms images are displayed for each municipality |
+| There is more than one data source | 3 | `WeatherDataFetcher` fetches data from [api.openweathermap.org](https://api.openweathermap.org/) |
+| There are more than two data sources | 2 | `CoatOfArmsFetcher` fetches data from [mlml.dev](https://www.mlml.dev/vaakunat/) |
+| Statistics | 2 | `Comparator` implements history that is displayed in `CompareActivity` + `ComparisonHistoryAdapter` |
+| Comparing municipalities | 3 | `CompareActivity` allows user to compare two municipalities |
+| Quiz | 4 | `QuizActivity` allows user to answer questions about municipalities' statistics and weather |
+| Game: Flashcards | 4 | `FlashcardsActivity` allows the user to play a matching game with the Coat of Arms images |
+| Game: HigherLower | 4 | `HigherLowerActivity` allows the user to play a Higher or Lower game with various statistics of two municipalities |
+| Feature: Explore | 3 | `ExploreActivity` allows the user to explore municipalities by sorting by different attributes |
+
+### Targeted Points: 30
 
